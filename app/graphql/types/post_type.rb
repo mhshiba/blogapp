@@ -5,4 +5,6 @@ class Types::PostType < Types::BaseObject
   field :user, Types::UserType, null: false
   field :body, String, null: false
 
+  field :comments, [Types::CommentType], null: true
+
 end

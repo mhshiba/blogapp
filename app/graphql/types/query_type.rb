@@ -20,10 +20,15 @@ module Types
       User.all
     end
 
-    field :posts, [Types::PostType], null: true,
-      description: 'List all posts'
-    def posts
-      Post.all
+    field :post, [Types::PostType], null: true,
+      description: 'List all posts by user' do
+        argument :user_id, Integer, required: true
+      end
+    def post(user_id:)
+      Post.where(user_id: user_id)
     end
+
+    field :comment, [Types::CommentType], null: true,
+      description: 'List all comments by posts' do
   end
 end
