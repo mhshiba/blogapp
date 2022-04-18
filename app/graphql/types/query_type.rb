@@ -13,5 +13,17 @@ module Types
     def test_field
       "Hello World!"
     end
+
+    field :users, [Types::UserType], null: true,
+      description: 'List all users'
+    def users
+      User.all
+    end
+
+    field :posts, [Types::PostType], null: true,
+      description: 'List all posts'
+    def posts
+      Post.all
+    end
   end
 end
