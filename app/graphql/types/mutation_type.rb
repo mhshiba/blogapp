@@ -11,5 +11,6 @@ module Types
 
     field :update_user, Types::UserType, mutation: Mutations::Users::UpdateUser
 
+    field :delete_user, Types::UserType, mutation: Mutations::Users::DeleteUser
   end
 end
