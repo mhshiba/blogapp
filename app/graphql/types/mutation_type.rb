@@ -8,5 +8,8 @@ module Types
     end
 
     field :create_user, Types::UserType, mutation: Mutations::Users::CreateUser
+
+    field :update_user, Types::UserType, mutation: Mutations::Users::UpdateUser
+
   end
 end
