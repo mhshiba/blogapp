@@ -13,6 +13,13 @@ class Types::UserType < Types::BaseObject
   field :comments, [Types::CommentType], null: true
 
   field :full_address, String, null: false
+
+  field :errors, [Types::ErrorType], null: false
+
+  def errors
+    object.errors.map { |e| { field_name: e.attribute, errors: object.errors[e.attribute] } }
+  end
+
 end
 
 class Types::UserInputType < GraphQL::Schema::InputObject
